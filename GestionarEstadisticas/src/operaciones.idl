@@ -1,0 +1,17 @@
+module sop_corba {
+    interface ObtenerEstadisticasInt {
+        typedef sequence<float> float_seq;
+	struct estadisticasDTO {
+            long cantidadSolicitudes;
+            float promedioValorSolicitudes;
+            float diferenciaMenorSolicitudMayorSolicitud;
+            float tasaCrecimiento;
+        };
+	struct ultimasOfertasDTO {
+        	float_seq ultimasOfertas;
+    	};
+
+        void consultarEstadisticas(out estadisticasDTO resultado);
+	ultimasOfertasDTO obtenerUltimasOfertas();
+    };
+};
