@@ -11,11 +11,12 @@ import sop_corba.ObtenerEstadisticasIntPackage.ultimasOfertasDTO;
 
 public class ClienteDeObjetosEstadisticas {
 
-    static ObtenerEstadisticasInt ref;
+    static ObtenerEstadisticasInt objRemotoEstadisticas;
     
    
     public static void main(String[] args) {
         try {
+            System.out.println("===iniciando el ClienteDeObjetosEstadisticas==="); 
             String[] vec = new String[4];
             vec[0] = "-ORBInitialPort";
             System.out.println("Ingrese la dirección IP donde escucha el n_s");
@@ -33,9 +34,9 @@ public class ClienteDeObjetosEstadisticas {
 
             // *** Resuelve la referencia del objeto en el N_S ***
             String name = "objEstadisticas";
-            ref = ObtenerEstadisticasIntHelper.narrow(ncRef.resolve_str(name));
+            objRemotoEstadisticas = ObtenerEstadisticasIntHelper.narrow(ncRef.resolve_str(name));
 
-            System.out.println("Obtenido el manejador sobre el servidor de objetos: " + ref);
+            System.out.println("Obtenido el manejador sobre el servidor de objetos: " + objRemotoEstadisticas);
                         
             int rta = 0;
             do {
@@ -83,7 +84,7 @@ public class ClienteDeObjetosEstadisticas {
     private static void opcion1()
     {
         estadisticasDTOHolder objestadisticas = new estadisticasDTOHolder();
-        ref.consultarEstadisticas(objestadisticas);
+        objRemotoEstadisticas.consultarEstadisticas(objestadisticas);
         if(objestadisticas.value.cantidadSolicitudes != 0 ){
             mostrarEstadisticas(objestadisticas.value);
         }
@@ -93,7 +94,7 @@ public class ClienteDeObjetosEstadisticas {
     }
     private static void opcion2()
     {
-        ultimasOfertasDTO ultimasOfertas = ref.obtenerUltimasOfertas();
+        ultimasOfertasDTO ultimasOfertas = objRemotoEstadisticas.obtenerUltimasOfertas();
         mostrarUltimasOfertas(ultimasOfertas);
     }
     private static void mostrarUltimasOfertas(ultimasOfertasDTO ultimasOfertas) {

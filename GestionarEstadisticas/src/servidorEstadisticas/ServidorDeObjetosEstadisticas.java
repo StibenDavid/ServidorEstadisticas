@@ -30,12 +30,12 @@ public class ServidorDeObjetosEstadisticas {
        
         
         if(objRemotoOfertas == null){
-           System.out.println("===iniciando el ClienteDeObjetosOfertas===");
             new ClienteDeObjetosOfertas();
             return;
        }
         
         try{
+        System.out.println("===iniciando el ServidorDeObjetosEstadisticas===");
         String[] vec = new String[4];
         vec[0] = "-ORBInitialHost";
         System.out.println("Ingrese la dirección IP donde escucha el n_s");

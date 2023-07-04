@@ -17,9 +17,15 @@ import sop_corba.OfertasIntHelper;
  */
 public class ClienteDeObjetosOfertas {
     static OfertasInt objRemotoOfertas;
+
+    public ClienteDeObjetosOfertas() {
+        ClienteDeObjetosOfertas.main(null);
+    }
+    
     
     public static void main(String[] args) {
         try {
+            System.out.println("===iniciando el ClienteDeObjetosOfertas===");
             String[] vec = new String[4];
             vec[0] = "-ORBInitialPort";
             System.out.println("Ingrese la dirección IP donde escucha el n_s");
