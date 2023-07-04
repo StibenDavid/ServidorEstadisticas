@@ -7,6 +7,7 @@ import org.omg.CORBA.*;
 import sop_corba.*;
 import sop_corba.ObtenerEstadisticasIntPackage.estadisticasDTO;
 import sop_corba.ObtenerEstadisticasIntPackage.estadisticasDTOHolder;
+import sop_corba.ObtenerEstadisticasIntPackage.ultimasOfertasDTO;
 
 public class ClienteDeObjetosEstadisticas {
 
@@ -42,6 +43,7 @@ public class ClienteDeObjetosEstadisticas {
                 
                 switch(rta){
                     case 1:
+                        opcion1();
                     break;                        
                     case 2:
                         opcion2();
@@ -60,7 +62,8 @@ public class ClienteDeObjetosEstadisticas {
     private static int menu() {
         
         System.out.println(" :: MENU ::");
-        System.out.println(" :2: Consultar estadisticas");
+        System.out.println(" 1: Consultar estadisticas");
+        System.out.println(" 2: Consultar ultimas 5 ofertas");
         System.out.println(" :3: Salir");
         int rta = UtilidadesConsola.leerEntero();
         
@@ -77,7 +80,7 @@ public class ClienteDeObjetosEstadisticas {
     }
     
     
-    private static void opcion2()
+    private static void opcion1()
     {
         estadisticasDTOHolder objestadisticas = new estadisticasDTOHolder();
         ref.consultarEstadisticas(objestadisticas);
@@ -86,6 +89,19 @@ public class ClienteDeObjetosEstadisticas {
         }
         else{
             System.out.println("no existe estadisticas...");
+        }
+    }
+    private static void opcion2()
+    {
+        ultimasOfertasDTO ultimasOfertas = ref.obtenerUltimasOfertas();
+        mostrarUltimasOfertas(ultimasOfertas);
+    }
+    private static void mostrarUltimasOfertas(ultimasOfertasDTO ultimasOfertas) {
+        float[] ultimasOfertasArray = ultimasOfertas.ultimasOfertas;
+
+        System.out.println("Últimas 5 ofertas:");
+        for (int i = 0; i < ultimasOfertasArray.length; i++) {
+            System.out.println("Oferta " + (i + 1) + ": " + ultimasOfertasArray[i]);
         }
     }
     
