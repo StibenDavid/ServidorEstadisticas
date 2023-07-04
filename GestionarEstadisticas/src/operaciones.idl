@@ -11,8 +11,6 @@ module sop_corba {
         	float_seq ultimasOfertas;
     	};
 
-        boolean registrarValorOferta(in float valor);
-        float consultarMayorOferta();
         void consultarEstadisticas(out estadisticasDTO resultado);
 	ultimasOfertasDTO obtenerUltimasOfertas();
     };
