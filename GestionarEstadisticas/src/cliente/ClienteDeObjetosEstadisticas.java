@@ -63,8 +63,8 @@ public class ClienteDeObjetosEstadisticas {
     private static int menu() {
         
         System.out.println(" :: MENU ::");
-        System.out.println(" 1: Consultar estadisticas");
-        System.out.println(" 2: Consultar ultimas 5 ofertas");
+        System.out.println(" :1: Consultar estadisticas");
+        System.out.println(" :2: Consultar ultimas 5 ofertas");
         System.out.println(" :3: Salir");
         int rta = UtilidadesConsola.leerEntero();
         
