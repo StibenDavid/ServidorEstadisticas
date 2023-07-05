@@ -100,10 +100,15 @@ public class ClienteDeObjetosEstadisticas {
     private static void mostrarUltimasOfertas(ultimasOfertasDTO ultimasOfertas) {
         float[] ultimasOfertasArray = ultimasOfertas.ultimasOfertas;
 
-        System.out.println("Últimas 5 ofertas:");
-        for (int i = 0; i < ultimasOfertasArray.length; i++) {
-            System.out.println("Oferta " + (i + 1) + ": " + ultimasOfertasArray[i]);
+         if (ultimasOfertasArray.length == 0) {
+        System.out.println("No hay ofertas disponibles en este momento.");
+        } else {
+        System.out.println("Últimas ofertas:");
+            for (int i = 0; i < ultimasOfertasArray.length; i++) {
+                System.out.println("Oferta " + (i + 1) + ": " + ultimasOfertasArray[i]);
+            }
         }
+        
     }
     
 }
